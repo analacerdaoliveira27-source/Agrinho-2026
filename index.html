@@ -4,390 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AgroFuturo | Sustentabilidade e Tecnologia no Campo</title>
-    <style>
-        /* --- Reset e Variáveis --- */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        
-        :root {
-            --primary-dark: #134e4a;
-            --primary: #065f46;
-            --accent: #10b981;
-            --accent-light: #d1fae5;
-            --bg-light: #f8fafc;
-            --text-main: #334155;
-            --text-muted: #64748b;
-            --white: #ffffff;
-            --font-main: 'Arial', sans-serif;
-        }
-
-        body {
-            font-family: var(--font-main);
-            color: var(--text-main);
-            background-color: var(--white);
-            line-height: 1.6;
-        }
-
-        /* --- Tipografia Global --- */
-        h1, h2, h3, h4 {
-            color: var(--primary-dark);
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-
-        p {
-            margin-bottom: 20px;
-            color: var(--text-main);
-            font-size: 14pt;
-            text-align: justify;
-        }
-
-        /* --- Menu de Navegação --- */
-        header {
-            background-color: var(--white);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            display: table;
-            width: 100%;
-        }
-
-        .logo {
-            display: table-cell;
-            font-size: 18pt;
-            font-weight: bold;
-            color: var(--primary);
-            vertical-align: middle;
-        }
-
-        .logo span {
-            color: var(--accent);
-        }
-
-        .nav-menu {
-            display: table-cell;
-            text-align: right;
-            vertical-align: middle;
-            list-style: none;
-        }
-
-        .nav-menu li {
-            display: inline-block;
-            margin-left: 25px;
-        }
-
-        .nav-menu a {
-            text-decoration: none;
-            color: var(--text-main);
-            font-weight: 600;
-            font-size: 11pt;
-            transition: color 0.3s;
-        }
-
-        .nav-menu a:hover {
-            color: var(--accent);
-        }
-
-        /* --- Banner Principal (Hero Section) --- */
-        .hero {
-            background: linear-gradient(rgba(19, 78, 74, 0.85), rgba(6, 95, 70, 0.9)), url('https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&q=80&w=1920') no-repeat center center/cover;
-            color: var(--white);
-            padding: 100px 20px;
-            text-align: center;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            color: var(--white);
-            font-size: 32pt;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            color: var(--accent-light);
-            font-size: 16pt;
-            margin-bottom: 35px;
-            text-align: center;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--accent);
-            color: var(--white);
-            padding: 12px 30px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-            transition: background 0.3s, transform 0.2s;
-            border: none;
-            cursor: pointer;
-            font-size: 12pt;
-        }
-
-        .btn:hover {
-            background-color: #059669;
-            transform: translateY(-2px);
-        }
-
-        /* --- Estrutura de Seções --- */
-        section {
-            padding: 80px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        section:nth-of-type(even) {
-            background-color: var(--bg-light);
-            max-width: 100%;
-            padding: 80px calc((100% - 1200px) / 2 + 20px);
-        }
-
-        .section-title {
-            font-size: 24pt;
-            text-align: center;
-            margin-bottom: 15px;
-            position: relative;
-            padding-bottom: 15px;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background-color: var(--accent);
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--text-muted);
-            margin-bottom: 50px;
-            font-size: 13pt;
-        }
-
-        /* --- Layout de Colunas Clássico (Table/Block para compatibilidade) --- */
-        .row {
-            display: table;
-            width: 100%;
-            table-layout: fixed;
-            margin-bottom: 40px;
-        }
-
-        .col {
-            display: table-cell;
-            vertical-align: top;
-            padding: 0 20px;
-        }
-
-        /* --- Seção 1: Produção & Cards de Métricas --- */
-        .metric-container {
-            display: table;
-            width: 100%;
-            margin-top: 30px;
-            text-align: center;
-        }
-
-        .metric-card {
-            display: table-cell;
-            background: var(--white);
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            border-top: 4px solid var(--primary);
-        }
-
-        .metric-card:not(:last-child) {
-            padding-right: 20px;
-        }
-
-        .metric-num {
-            font-size: 28pt;
-            font-weight: bold;
-            color: var(--primary);
-            margin-bottom: 10px;
-        }
-
-        /* --- Seção 2 e 4: Grid de Recursos / Práticas --- */
-        .feature-grid {
-            display: table;
-            width: 100%;
-            table-layout: fixed;
-        }
-
-        .feature-item {
-            display: table-cell;
-            padding: 25px;
-            background: var(--white);
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-            vertical-align: top;
-        }
-
-        .feature-item:not(:last-child) {
-            margin-right: 20px; /* fallback */
-        }
-
-        .feature-icon {
-            font-size: 24pt;
-            color: var(--accent);
-            margin-bottom: 15px;
-        }
-
-        /* --- Tabelas de Comparação --- */
-        .table-wrapper {
-            margin-top: 30px;
-            overflow-x: auto;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            background: var(--white);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        }
-
-        th, td {
-            padding: 15px 20px;
-            text-align: left;
-        }
-
-        th {
-            background-color: var(--primary);
-            color: var(--white);
-            font-weight: bold;
-            font-size: 12pt;
-        }
-
-        tr:nth-child(even) {
-            background-color: var(--bg-light);
-        }
-
-        td strong {
-            color: var(--primary-dark);
-        }
-
-        /* --- Formulários e Elementos Interativos --- */
-        .form-container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: var(--white);
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-            color: var(--primary-dark);
-        }
-
-        input[type="text"], input[type="email"], select, textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #cbd5e1;
-            border-radius: 4px;
-            font-size: 11pt;
-            color: var(--text-main);
-        }
-
-        input:focus, select:focus, textarea:focus {
-            outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
-        }
-
-        /* --- Desafios Complementares / Widgets Interativos (Simulação) --- */
-        .interactive-box {
-            background: var(--accent-light);
-            border: 1px solid rgba(16, 185, 129, 0.2);
-            padding: 30px;
-            border-radius: 8px;
-            margin-top: 30px;
-        }
-
-        .calc-result {
-            margin-top: 20px;
-            padding: 15px;
-            background: var(--white);
-            border-left: 5px solid var(--accent);
-            font-weight: bold;
-            display: none;
-        }
-
-        /* --- Rodapé --- */
-        footer {
-            background-color: var(--primary-dark);
-            color: var(--white);
-            padding: 40px 20px;
-            text-align: center;
-            font-size: 11pt;
-        }
-
-        footer p {
-            color: var(--accent-light);
-            text-align: center;
-            margin-bottom: 10px;
-        }
-
-        .footer-links a {
-            color: var(--white);
-            margin: 0 10px;
-            text-decoration: none;
-        }
-
-        .footer-links a:hover {
-            text-decoration: underline;
-        }
-
-        /* --- Responsividade Básica via Media Query --- */
-        @media (max-width: 768px) {
-            .nav-menu, .col, .metric-card, .feature-item {
-                display: block;
-                width: 100%;
-                text-align: left;
-                padding: 15px 0;
-            }
-            .nav-menu { text-align: center; margin-top: 15px; }
-            .nav-menu li { display: block; margin: 10px 0; }
-            .hero h1 { font-size: 24pt; }
-            section { padding: 40px 20px; }
-        }
-    </style>
 </head>
 <body>
 
-    <!-- CABEÇALHO & MENU DE NAVEGAÇÃO -->
     <header>
-        <div class="nav-container">
-            <div class="logo">Agro<span>Futuro</span></div>
-            <ul class="nav-menu">
+        <div>
+            <div>Agro<span>Futuro</span></div>
+            <ul>
                 <li><a href="#inicio">Início</a></li>
                 <li><a href="#producao">Produção</a></li>
                 <li><a href="#sustentabilidade">Sustentabilidade</a></li>
@@ -398,95 +21,91 @@
         </div>
     </header>
 
-    <!-- PÁGINA INICIAL / HERO BANNER -->
-    <div class="hero" id="inicio">
-        <div class="hero-content">
+    <div id="inicio">
+        <div>
             <h1>Cultivando o Amanhã: A tecnologia e a natureza lado a lado na alimentação do mundo.</h1>
-            <p>Descubra como a revolução digital e as práticas regenerativas estão moldando um agronegócio de alta produtividade e impacto ambiental positivo.</p>
-            <a href="#producao" class="btn">Explorar Projeto</a>
+            <p>Descubra como a revolução digital e as práticas regenerativas estão moldando um agronegócio de alta produtividade e impacto ambientado positivo.</p>
+            <a href="#producao">Explorar Projeto</a>
         </div>
     </div>
 
-    <!-- SEÇÃO 1: PRODUÇÃO AGRÍCOLA -->
     <section id="producao">
-        <h2 class="section-title">Produção Agrícola & Força Econômica</h2>
-        <p class="section-subtitle">O motor de crescimento e o pilar da segurança alimentar global.</p>
+        <h2>Produção Agrícola & Força Econômica</h2>
+        <p>O motor de crescimento e o pilar da segurança alimentar global.</p>
         
-        <div class="row">
-            <div class="col">
+        <div>
+            <div>
                 <h3>Importância para a Economia</h3>
                 <p>O agronegócio consolidou-se como um dos principais motores econômicos globais. Além de garantir o abastecimento e a segurança alimentar de bilhões de pessoas, o setor é responsável por uma fatia expressiva do PIB de grandes nações exportadoras, gerando empregos em massa e equilibrando a balança comercial através de commodities altamente valorizadas.</p>
             </div>
-            <div class="col">
+            <div>
                 <h3>Modernização Tecnológica</h3>
                 <p>A produção atual não se limita mais ao trabalho manual tradicional. O campo transformou-se em um polo tecnológico dinâmico, onde a análise de dados, a conectividade e a automação de frotas pesadas impulsionam recordes sucessivos de safras sem a necessidade de expansão proporcional de área.</p>
             </div>
         </div>
 
-        <div class="metric-container">
-            <div class="metric-card">
-                <div class="metric-num">20-30%</div>
+        <div>
+            <div>
+                <div>20-30%</div>
                 <h4>Participação no PIB</h4>
-                <p style="text-align:center; font-size:11pt; margin-top:5px;">Média de impacto em países com forte vocação agrícola.</p>
+                <p>Média de impacto em países com forte vocação agrícola.</p>
             </div>
-            <div class="metric-card" style="margin: 0 20px;">
-                <div class="metric-num">US$ 169 Bi</div>
+            <div>
+                <div>US$ 169 Bi</div>
                 <h4>Recorde em Divisas</h4>
-                <p style="text-align:center; font-size:11pt; margin-top:5px;">Volume histórico de exportações de commodities limpas.</p>
+                <p>Volume histórico de exportações de commodities limpas.</p>
             </div>
-            <div class="metric-card">
-                <div class="metric-num">1 Bilhão+</div>
+            <div>
+                <div>1 Bilhão+</div>
                 <h4>Pessoas Alimentadas</h4>
-                <p style="text-align:center; font-size:11pt; margin-top:5px;">Alcance global do abastecimento de grãos e proteínas.</p>
+                <p>Alcance global do abastecimento de grãos e proteínas.</p>
             </div>
         </div>
     </section>
 
-    <!-- SEÇÃO 2: SUSTENTABILIDADE -->
     <section id="sustentabilidade">
-        <h2 class="section-title">Sustentabilidade no Campo</h2>
-        <p class="section-subtitle">O equilíbrio perfeito entre o tripé econômico, social e ambiental.</p>
+        <h2>Sustentabilidade no Campo</h2>
+        <p>O equilíbrio perfeito entre o tripé econômico, social e ambiental.</p>
 
-        <div class="row">
-            <div class="col" style="width: 40%;">
+        <div>
+            <div>
                 <h3>Práticas Ecológicas Atuais</h3>
                 <p>A verdadeira sustentabilidade baseia-se na manutenção da viabilidade econômica da propriedade enquanto se regenera a biodiversidade e os recursos vitais da terra.</p>
                 <p>Hoje, grandes mercados internacionais exigem certificações estritas e rastreabilidade total de origem, transformando a agenda verde no maior critério de competitividade do mercado.</p>
             </div>
-            <div class="col" style="width: 60%;">
-                <div class="feature-grid">
-                    <div class="feature-item">
-                        <div class="feature-icon">🌱</div>
+            <div>
+                <div>
+                    <div>
+                        <div>🌱</div>
                         <h4>Conservação do Solo</h4>
-                        <p style="font-size:11pt;">Uso de técnicas de Plantio Direto e rotação de culturas para manter os microrganismos vivos, evitar a erosão profunda e fixar o carbono diretamente na palhada orgânica.</p>
+                        <p>Uso de técnicas de Plantio Direto e rotação de culturas para manter os microrganismos vivos, evitar a erosão profunda e fixar o carbono diretamente na palhada orgânica.</p>
                     </div>
-                    <div class="feature-item" style="margin-left: 20px;">
-                        <div class="feature-icon">☀️</div>
+                    <div>
+                        <div>☀️</div>
                         <h4>Matriz Energética Limpa</h4>
-                        <p style="font-size:11pt;">Implementação de usinas solares fotovoltaicas para sistemas de irrigação automatizados e biodigestores para converter dejetos animais em biogás e biofertilizantes de alta performance.</p>
+                        <p>Implementação de usinas solares fotovoltaicas para sistemas de irrigação automatizados e biodigestores para converter dejetos animais em biogás e biofertilizantes de alta performance.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SEÇÃO 3: DESAFIOS AMBIENTAIS -->
     <section id="desafios">
-        <h2 class="section-title">Desafios Ambientais Urgentes</h2>
-        <p class="section-subtitle">Reconhecer os problemas atuais é o primeiro passo para construir a mudança.</p>
+        <h2>Desafios Ambientais Urgentes</h2>
+        <p>Reconhecer os problemas atuais é o primeiro passo para construir a mudança.</p>
 
-        <div class="row">
-            <div class="col">
+        <div>
+            <div>
                 <h3>O Custo da Expansão Desordenada</h3>
                 <p>O manejo inadequado ou a abertura ilegal de novas fronteiras agrícolas geram impactos severos. O <strong>Desmatamento</strong> destrói habitats nativos e quebra o ciclo hidrológico de evapotranspiração, reduzindo o volume de chuvas que a própria lavoura necessita para sobreviver.</p>
             </div>
-            <div class="col">
+            <div>
                 <h3>Gases de Efeito Estufa e Água</h3>
                 <p>A agropecuária tradicional é altamente pressionada pelas emissões de <strong>Metano (CH₄)</strong> vindas da fermentação entérica e pelo uso excessivo de fertilizantes nitrogenados que geram <strong>Óxido Nitroso (N₂O)</strong>. Além disso, a captação hídrica sem monitoramento inteligente causa estresse em bacias hidrográficas vitais.</p>
             </div>
         </div>
 
-        <div class="table-wrapper">
+        <div>
             <table>
                 <thead>
                     <tr>
@@ -516,36 +135,34 @@
         </div>
     </section>
 
-    <!-- SEÇÃO 4: SOLUÇÕES E FUTURO -->
     <section id="solucoes">
-        <h2 class="section-title">Soluções Tecnológicas & Futuro</h2>
-        <p class="section-subtitle">As ferramentas inovadoras que respondem à pergunta norteadora do amanhã.</p>
+        <h2>Soluções Tecnológicas & Futuro</h2>
+        <p>As ferramentas inovadoras que respondem à pergunta norteadora do amanhã.</p>
 
-        <div class="feature-grid">
-            <div class="feature-item">
-                <div class="feature-icon">🛰️</div>
+        <div>
+            <div>
+                <div>🛰️</div>
                 <h3>Agricultura de Precisão</h3>
-                <p style="font-size:12pt;">Sensores em solo, imagens de satélite e mapas de prescrição que permitem aplicar fertilizantes e defensivos em taxa variável — apenas na quantidade exata e no ponto necessário.</p>
+                <p>Sensores em solo, imagens de satélite e mapas de prescrição que permitem aplicar fertilizantes e defensivos em taxa variável — apenas na quantidade exata e no ponto necessário.</p>
             </div>
-            <div class="feature-item" style="margin: 0 20px;">
-                <div class="feature-icon">🛸</div>
+            <div>
+                <div>🛸</div>
                 <h3>Drones & Monitoramento</h3>
-                <p style="font-size:12pt;">Mapeamento espectral aéreo para identificar focos iniciais de pragas ou estresse hídrico. Permite intervenções ultra-localizadas, economizando recursos químicos e combustível.</p>
+                <p>Mapeamento espectral aéreo para identificar focos iniciais de pragas ou estresse hídrico. Permite intervenções ultra-localizadas, economizando recursos químicos e combustível.</p>
             </div>
-            <div class="feature-item">
-                <div class="feature-icon">🌳</div>
+            <div>
+                <div>🌳</div>
                 <h3>Sistema ILPF</h3>
-                <p style="font-size:12pt;">A Integração Lavoura-Pecuária-Floresta consorcia diferentes atividades em uma mesma área. As árvores sequestram as emissões dos animais e criam um microclima de alto bem-estar animal.</p>
+                <p>A Integração Lavoura-Pecuária-Floresta consorcia diferentes atividades em uma mesma área. As árvores sequestram as emissões dos animais e criam um microclima de alto bem-estar animal.</p>
             </div>
         </div>
 
-        <!-- DESAFIO COMPLEMENTAR: CALCULADORA INTERATIVA INTERNA -->
-        <div class="interactive-box">
+        <div>
             <h3>[Diferencial] Calculadora Rápida de Impacto</h3>
-            <p style="font-size:11pt; margin-bottom:15px;">Simule a transição de uma prática tradicional para uma tecnologia sustentável.</p>
+            <p>Simule a transição de uma prática tradicional para uma tecnologia sustentável.</p>
             
-            <div class="row" style="margin-bottom:0;">
-                <div class="col">
+            <div>
+                <div>
                     <label for="tech-select">Selecione a Tecnologia a Adotar:</label>
                     <select id="tech-select">
                         <option value="irrigacao">Irrigação Inteligente por Sensores</option>
@@ -553,30 +170,29 @@
                         <option value="ilpf">Implementação de Sistema ILPF</option>
                     </select>
                 </div>
-                <div class="col" style="vertical-align:bottom;">
-                    <button class="btn" onclick="calcularImpacto()">Simular Economia</button>
+                <div>
+                    <button type="button">Simular Economia</button>
                 </div>
             </div>
-            <div id="calc-result" class="calc-result"></div>
+            <div id="calc-result"></div>
         </div>
     </section>
 
-    <!-- SEÇÃO 5: CONTATO E CONSCIENTIZAÇÃO -->
     <section id="contato">
-        <h2 class="section-title">Faça Parte Dessa Transformação</h2>
-        <p class="section-subtitle">Tem alguma dúvida ou deseja colaborar com o projeto AgroFuturo? Deixe sua mensagem.</p>
+        <h2>Faça Parte Dessa Transformação</h2>
+        <p>Tem alguma dúvida ou deseja colaborar com o projeto AgroFuturo? Deixe sua mensagem.</p>
 
-        <div class="form-container">
-            <form onsubmit="event.preventDefault(); alert('Mensagem enviada com sucesso! Este é o protótipo funcional do seu projeto.');">
-                <div class="form-group">
+        <div>
+            <form>
+                <div>
                     <label for="name">Nome Completo</label>
                     <input type="text" id="name" placeholder="Ex: João Silva" required>
                 </div>
-                <div class="form-group">
+                <div>
                     <label for="email">E-mail Corporativo ou Acadêmico</label>
                     <input type="email" id="email" placeholder="Ex: joao@escola.com" required>
                 </div>
-                <div class="form-group">
+                <div>
                     <label for="interest">Área de Interesse</label>
                     <select id="interest">
                         <option>Pesquisa Acadêmica</option>
@@ -585,19 +201,18 @@
                         <option>Outros</option>
                     </select>
                 </div>
-                <div class="form-group">
+                <div>
                     <label for="message">Mensagem / Sugestão</label>
                     <textarea id="message" rows="5" placeholder="Escreva aqui como você enxerga o futuro do agronegócio..." required></textarea>
                 </div>
-                <button type="submit" class="btn" style="width: 100%;">Enviar Mensagem</button>
+                <button type="submit">Enviar Mensagem</button>
             </form>
         </div>
     </section>
 
-    <!-- RODAPÉ -->
     <footer>
         <p>&copy; 2026 Projeto AgroFuturo. Desenvolvido para a Competência de Planejamento Web e Design Digital.</p>
-        <div class="footer-links">
+        <div>
             <a href="#inicio">Início</a> | 
             <a href="#producao">Produção</a> | 
             <a href="#sustentabilidade">Sustentabilidade</a> | 
@@ -605,24 +220,5 @@
         </div>
     </footer>
 
-    <!-- INTERATIVIDADE JAVASCRIPT (Simulações e Menu) -->
-    <script>
-        function calcularImpacto() {
-            var tech = document.getElementById('tech-select').value;
-            var resultBox = document.getElementById('calc-result');
-            var texto = "";
-
-            if(tech === "irrigacao") {
-                texto = "🎯 Resultado Estimado: Economia de até 40% no consumo de recursos hídricos e redução imediata nos custos de energia elétrica das bombas de aspersão.";
-            } else if(tech === "precisao") {
-                texto = "🎯 Resultado Estimado: Redução de 25% no desperdício de insumos nitrogenados e defensivos químicos, com aumento real de 12% na produtividade por hectare.";
-            } else if(tech === "ilpf") {
-                texto = "🎯 Resultado Estimado: Sequestro de cerca de 4 a 8 toneladas de CO₂ por hectare ao ano através do crescimento arbóreo, alcançando o selo de Carne Carbono Neutro.";
-            }
-
-            resultBox.innerHTML = texto;
-            resultBox.style.display = "block";
-        }
-    </script>
 </body>
 </html>
