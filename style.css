@@ -1,1 +1,123 @@
+/* --- Reset e Variáveis --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
+:root {
+    --primary-dark: #134e4a;
+    --primary: #065f46;
+    --accent: #10b981;
+    --accent-light: #d1fae5;
+    --bg-light: #f8fafc;
+    --text-main: #334155;
+    --text-muted: #64748b;
+    --white: #ffffff;
+    --font-main: 'Arial', sans-serif;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--text-main);
+    background-color: var(--white);
+    line-height: 1.6;
+}
+
+/* --- Tipografia Global --- */
+h1, h2, h3, h4 {
+    color: var(--primary-dark);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+p {
+    margin-bottom: 20px;
+    color: var(--text-main);
+    font-size: 14pt;
+    text-align: justify;
+}
+
+/* --- Menu de Navegação --- */
+header {
+    background-color: var(--white);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: table;
+    width: 100%;
+}
+
+.logo {
+    display: table-cell;
+    font-size: 18pt;
+    font-weight: bold;
+    color: var(--primary);
+    vertical-align: middle;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+.nav-menu {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+    list-style: none;
+}
+
+.nav-menu li {
+    display: inline-block;
+    margin-left: 25px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 600;
+    font-size: 11pt;
+    transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+    color: var(--accent);
+}
+
+/* --- Banner Principal (Hero Section) --- */
+.hero {
+    background: linear-gradient(rgba(19, 78, 74, 0.85), rgba(6, 95, 70, 0.9)), url('https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&q=80&w=1920') no-repeat center center/cover;
+    color: var(--white);
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    color: var(--white);
+    font-size: 32pt;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero p {
+    color: var(--accent-light);
+    font-size: 16pt;
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--accent);
